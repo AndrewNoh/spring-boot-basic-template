@@ -41,7 +41,7 @@ https://github.com/your-username/spring-boot-default-template.git
 
 ```
     
-## The Domain package has the following sub-packages
+> The Domain package has the following sub-packages
 ```
 controller: controller package
 model.dto: DTO model package
