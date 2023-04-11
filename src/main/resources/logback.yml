@@ -1,0 +1,27 @@
+spring:
+  profiles: local
+
+logging:
+  pattern:
+    console: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
+  level:
+    org:
+      springframework: DEBUG
+
+---
+
+spring:
+  profiles: dev
+
+logging:
+  pattern:
+    file: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
+  file:
+    name: /logs/abc.log
+  level:
+    org:
+      springframework: INFO
+  logback:
+    rollingpolicy:
+      file-name-pattern: "/logs/abc.%d{yyyy-MM-dd}.%i"
+      max-history: 30
