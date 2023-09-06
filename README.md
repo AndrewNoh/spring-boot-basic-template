@@ -1,6 +1,8 @@
 # Spring Boot Default Template Project
 
 >This is a basic Spring Boot template project that you can use as a starting point for your own application.
+>Srping Boot version 3.1.0
+>Java 17
 
 ## Getting Started
 1. To get started with this project, follow these steps:
