@@ -2,10 +2,6 @@ package andrew.backend.app.domain.admin.onboarding.controller;
 
 import andrew.backend.app.domain.admin.onboarding.model.dto.*;
 import andrew.backend.app.domain.admin.onboarding.service.OnboardingService;
-import andrew.backend.app.global.response.CommonResponse;
-import andrew.backend.app.global.response.ListResponse;
-import andrew.backend.app.global.response.ResponseService;
-import andrew.backend.app.global.response.SingleResponse;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.v3.oas.annotations.Operation;

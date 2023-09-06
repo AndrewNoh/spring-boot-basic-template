@@ -8,7 +8,6 @@ import andrew.backend.app.domain.main.account.model.entity.LanguageEntity;
 import andrew.backend.app.domain.main.account.model.repository.CountryCodeRepo;
 import andrew.backend.app.domain.main.account.model.repository.LanguageRepo;
 import andrew.backend.app.domain.main.account.service.LanguageService;
-import andrew.backend.app.global.exception.custom.CountryCodeNotFoundException;
 
 import java.util.Map;
 

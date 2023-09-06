@@ -3,13 +3,12 @@ package andrew.backend.app.global.response;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 
 @Setter
 @Getter
 @AllArgsConstructor
-public class ListResponse<T> extends CommonResponse {
-    private List<T> data;
+public class PageResponse<T> extends CommonResponse {
+    private Page<T> data;
 }

@@ -13,7 +13,6 @@ import andrew.backend.app.domain.main.account.model.entity.TokenEntity;
 import andrew.backend.app.domain.main.account.model.entity.UserInfoEntity;
 import andrew.backend.app.domain.main.account.model.enums.SnsProvider;
 import andrew.backend.app.domain.main.account.model.repository.TokenRepo;
-import andrew.backend.app.global.response.CommonResponse;
 import andrew.backend.app.global.security.auth.PrincipalDetails;
 import andrew.backend.app.global.security.auth.PrincipalDetailsService;
 import andrew.backend.app.global.security.sns.SnsTokenVerifier;

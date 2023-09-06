@@ -1,7 +1,6 @@
 package andrew.backend.app.global.security.sns;
 
 import andrew.backend.app.domain.main.account.model.enums.SnsProvider;
-import andrew.backend.app.global.exception.custom.InvalidTokenException;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;

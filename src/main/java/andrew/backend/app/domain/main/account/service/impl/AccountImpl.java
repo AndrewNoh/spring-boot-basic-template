@@ -19,9 +19,6 @@ import andrew.backend.app.domain.main.account.model.enums.SnsProvider;
 import andrew.backend.app.domain.main.account.model.repository.*;
 import andrew.backend.app.domain.main.account.service.AccountService;
 import andrew.backend.app.domain.main.account.service.LanguageService;
-import andrew.backend.app.global.exception.custom.CountryCodeNotFoundException;
-import andrew.backend.app.global.exception.custom.DuplicatedEmailException;
-import andrew.backend.app.global.exception.custom.NotFoundEmailException;
 import andrew.backend.app.global.security.sns.SnsTokenVerifier;
 import andrew.backend.app.global.util.CertificationRandomNumber;
 

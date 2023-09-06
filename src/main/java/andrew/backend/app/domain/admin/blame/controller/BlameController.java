@@ -2,8 +2,6 @@ package andrew.backend.app.domain.admin.blame.controller;
 
 import andrew.backend.app.domain.admin.blame.model.dto.RequestBlameDto;
 import andrew.backend.app.domain.admin.blame.service.BlameService;
-import andrew.backend.app.global.response.CommonResponse;
-import andrew.backend.app.global.response.ResponseService;
 import andrew.backend.app.global.security.auth.PrincipalDetails;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;

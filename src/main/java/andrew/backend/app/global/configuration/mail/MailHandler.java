@@ -1,6 +1,5 @@
 package andrew.backend.app.global.configuration.mail;
 
-import andrew.backend.app.global.exception.custom.NotFoundEmailException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

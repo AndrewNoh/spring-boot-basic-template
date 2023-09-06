@@ -14,8 +14,6 @@ import andrew.backend.app.domain.common.file.model.repository.FileRepo;
 import andrew.backend.app.domain.main.account.model.entity.CountryCodeEntity;
 import andrew.backend.app.domain.main.account.model.repository.CountryCodeRepo;
 import andrew.backend.app.domain.main.account.service.LanguageService;
-import andrew.backend.app.global.exception.custom.CountryCodeNotFoundException;
-import andrew.backend.app.global.exception.custom.EntityNotFoundException;
 
 import java.util.Collections;
 import java.util.List;

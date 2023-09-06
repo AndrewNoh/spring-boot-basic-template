@@ -7,7 +7,6 @@ import andrew.backend.app.domain.admin.blame.model.repository.AdminBlameRepo;
 import andrew.backend.app.domain.admin.blame.service.BlameService;
 import andrew.backend.app.domain.main.account.model.entity.UserInfoEntity;
 import andrew.backend.app.domain.main.account.model.repository.UserInfoRepo;
-import andrew.backend.app.global.exception.custom.NotFoundEmailException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
