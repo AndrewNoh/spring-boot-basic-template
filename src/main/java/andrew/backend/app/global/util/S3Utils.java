@@ -4,6 +4,8 @@ import andrew.backend.app.domain.common.file.model.dto.FileDto;
 import andrew.backend.app.domain.common.file.model.entity.FileEntity;
 import andrew.backend.app.domain.common.file.model.enums.FileType;
 import andrew.backend.app.domain.common.file.model.repository.FileRepo;
+import andrew.backend.app.global.exception.CustomException;
+import andrew.backend.app.global.exception.ErrorCode;
 import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
