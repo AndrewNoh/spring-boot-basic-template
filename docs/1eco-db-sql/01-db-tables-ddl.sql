@@ -13,7 +13,7 @@ create or replace table `andrew`.file
     sequence           int          null,
     is_deleted         tinyint      null,
     constraint file_file_file_id_fk
-        foreign key (parent_id) references `1eco`.file (file_id)
+        foreign key (parent_id) references `andrew`.file (file_id)
 )
     comment '파일';
 
@@ -40,7 +40,7 @@ create or replace table `andrew`.location_country
               time_zone     varchar(255) null,
               is_service    tinyint(1)   null comment '서비스 지역 여부(서비스 중인지 아닌지)',
               constraint location_country_language_lan_id_fk
-              foreign key (lan_id) references `1eco`.language (lan_id)
+              foreign key (lan_id) references `andrew`.language (lan_id)
               )
               comment '국가';
 
@@ -64,7 +64,7 @@ create or replace table `andrew`.admin_management
     updated_at datetime(6)  null,
     is_deleted tinyint(1)   null,
     constraint admin_management_role_role_id_fk
-        foreign key (role_id) references `1eco`.role (role_id)
+        foreign key (role_id) references `andrew`.role (role_id)
 );
 
 create or replace table `andrew`.admin_faq_notice
@@ -81,16 +81,16 @@ create or replace table `andrew`.admin_faq_notice
     updated_at datetime(6)  null,
     is_deleted tinyint(1)   null,
     constraint admin_faq_notice_admin_management_admin_id_fk
-        foreign key (admin_id) references `1eco`.admin_management (admin_id),
+        foreign key (admin_id) references `andrew`.admin_management (admin_id),
     constraint admin_faq_notice_country_code_code_id_fk
-        foreign key (code_id) references `1eco`.location_country (code_id),
+        foreign key (code_id) references `andrew`.location_country (code_id),
     constraint admin_faq_notice_file_file_id_fk
-        foreign key (file_id) references `1eco`.file (file_id)
+        foreign key (file_id) references `andrew`.file (file_id)
 )
     comment 'FAQ 및 공지사항 테이블';
 
 create or replace fulltext index admin_faq_notice_title_index
-    on `1eco`.admin_faq_notice (title);
+    on `andrew`.admin_faq_notice (title);
 
 create or replace table `andrew`.admin_marketing_notification
 (
@@ -106,14 +106,14 @@ create or replace table `andrew`.admin_marketing_notification
     title             varchar(255) not null comment '제목',
     body              longtext     not null comment '내용',
     constraint admin_marketing_notification_admin_management_admin_id_fk
-        foreign key (admin_id) references `1eco`.admin_management (admin_id),
+        foreign key (admin_id) references `andrew`.admin_management (admin_id),
     constraint admin_marketing_notification_country_code_code_id_fk
-        foreign key (code_id) references `1eco`.location_country (code_id)
+        foreign key (code_id) references `andrew`.location_country (code_id)
 )
     comment '마케팅 알림 관리';
 
 create or replace fulltext index admin_marketing_notification_title_index
-    on `1eco`.admin_marketing_notification (title);
+    on `andrew`.admin_marketing_notification (title);
 
 create or replace table `andrew`.admin_term_conditions
 (
@@ -129,14 +129,14 @@ create or replace table `andrew`.admin_term_conditions
     updated_at   datetime(6)  null,
     is_deleted   tinyint(1)   null,
     constraint admin_term_conditions_admin_management_admin_id_fk
-        foreign key (admin_id) references `1eco`.admin_management (admin_id),
+        foreign key (admin_id) references `andrew`.admin_management (admin_id),
     constraint admin_term_conditions_language_lan_id_fk
-        foreign key (lan_id) references `1eco`.language (lan_id)
+        foreign key (lan_id) references `andrew`.language (lan_id)
 )
     comment '관리자 이용약관';
 
 create or replace fulltext index admin_term_conditions_terms_title_index
-    on `1eco`.admin_term_conditions (terms_title);
+    on `andrew`.admin_term_conditions (terms_title);
 
 create or replace table `andrew`.shedlock
 (
@@ -167,11 +167,11 @@ create or replace table `andrew`.user_info
     constraint user_info_pk2
         unique (email, is_deleted),
     constraint user_info_country_code_code_id_fk
-        foreign key (code_id) references `1eco`.location_country (code_id),
+        foreign key (code_id) references `andrew`.location_country (code_id),
     constraint user_info_file_file_id_fk
-        foreign key (file_id) references `1eco`.file (file_id),
+        foreign key (file_id) references `andrew`.file (file_id),
     constraint user_info_language_lan_id_fk
-        foreign key (lan_id) references `1eco`.language (lan_id)
+        foreign key (lan_id) references `andrew`.language (lan_id)
 )
     comment '유저 정보';
 
@@ -190,9 +190,9 @@ create or replace table `andrew`.admin_blame
     updated_at  datetime(6)  null,
     is_deleted  tinyint(1)   null,
     constraint admin_blame_country_code_code_id_fk
-        foreign key (code_id) references `1eco`.location_country (code_id),
+        foreign key (code_id) references `andrew`.location_country (code_id),
     constraint admin_blame_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment '게시글 신고 관리';
 
@@ -210,7 +210,7 @@ create or replace table `andrew`.notification
     created_at     datetime(6)                  null,
     updated_at     datetime(6)                  null,
     constraint notification_user_info_user_id_fk
-        foreign key (target_user_id) references `1eco`.user_info (user_id)
+        foreign key (target_user_id) references `andrew`.user_info (user_id)
 )
     comment '알림';
 
@@ -222,7 +222,7 @@ create or replace table `andrew`.notification_set
     is_push      tinyint null comment '푸쉬알림 여부',
     is_marketing tinyint null comment '마케팅 알림 여부',
     constraint notification_set_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment '알림 셋팅';
 
@@ -235,7 +235,7 @@ create or replace table `andrew`.referral
     constraint referral_pk
         unique (code),
     constraint referral_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment '추천인 ';
 
@@ -250,9 +250,9 @@ create or replace table `andrew`.role_user
     constraint role_user_pk
         unique (role_id, user_id),
     constraint role_user_role_role_id_fk
-        foreign key (role_id) references `1eco`.role (role_id),
+        foreign key (role_id) references `andrew`.role (role_id),
     constraint role_user_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment '각 유저별 권한 여부';
 
@@ -269,7 +269,7 @@ create or replace table `andrew`.sns_info
     constraint sns_info_pk
         unique (access_id, provider),
     constraint sns_info_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment 'sns 정보';
 
@@ -281,7 +281,7 @@ create or replace table `andrew`.tokens
     jwt_token   text       null comment '토큰의 값',
     jwt_expired tinyint(1) not null,
     constraint tokens_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment 'JWT 토큰 관리';
 
@@ -294,12 +294,12 @@ create or replace table `andrew`.user_check
     created_at  datetime(6) null,
     updated_at  datetime(6) null,
     constraint user_check_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment '유저 비밀번호 오류 횟수 체크';
 
 create or replace index user_info_lan_id_index
-    on `1eco`.user_info (lan_id);
+    on `andrew`.user_info (lan_id);
 
 create or replace table `andrew`.user_term
 (
@@ -310,9 +310,9 @@ create or replace table `andrew`.user_term
     is_agree   tinyint     not null comment '동의 여부',
     agree_date datetime(6) not null comment '동의 일자',
     constraint user_term_term_conditions_terms_code_fk
-        foreign key (terms_code) references `1eco`.admin_term_conditions (term_id),
+        foreign key (terms_code) references `andrew`.admin_term_conditions (term_id),
     constraint user_term_user_info_user_id_fk
-        foreign key (user_id) references `1eco`.user_info (user_id)
+        foreign key (user_id) references `andrew`.user_info (user_id)
 )
     comment '이용 약관 동의 여부';
 
