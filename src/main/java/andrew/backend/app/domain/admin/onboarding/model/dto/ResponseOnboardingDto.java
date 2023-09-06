@@ -1,6 +1,5 @@
 package andrew.backend.app.domain.admin.onboarding.model.dto;
 
-import andrew.backend.app.domain.common.file.model.dto.FileDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.Getter;

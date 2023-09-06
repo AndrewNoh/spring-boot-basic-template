@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum FileType {
-    IMAGE("이미지"),
-    ETC("기타");
+    ADMIN("관리자"),
+    USER("유저");
 
     private final String value;
 

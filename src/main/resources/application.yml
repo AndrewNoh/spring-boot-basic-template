@@ -44,7 +44,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: team.boundary.oneecho.global.configuration.CustomMariaDBDialect
+        dialect: andrew.backend.app.global.configuration.CustomMariaDBDialect
         hbm2ddl:
           auto: none
         jdbc:
