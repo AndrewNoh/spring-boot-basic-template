@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  app:
+    image: openjdk:17.0.1-jdk-slim
+    container_name: andrew
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: [ "./gradlew", "bootrun" ]
+    restart: always
+    tmpfs:
+      - /tmp
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+  nginx:
+    container_name: nginx
+    image: "nginx:latest"
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/data:/var/www/certbot
+  redis:
+    image: redis:latest
+    hostname: redis
+    container_name: redis
+    volumes:
+      - ./redis:/data
+    command: redis-server /data/redis.conf --port 6379 --protected-mode no
+    ports:
+      - "6379:6379"
+  certbot:
+    image: certbot/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot --email 이메일 주소 입력 필요 --agree-tos --no-eff-email --force-renewal -d 접속 url 입력
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/logs:/var/log/letsencrypt
+      - ./certbot/data:/var/www/certbot
