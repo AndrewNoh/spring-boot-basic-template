@@ -6,33 +6,53 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+  tomcat:
+    basedir: .
+    accesslog:
+      enabled: true
+      directory: logs
+      suffix: .log
+      prefix: access_log
+      file-date-format: .yyyy-MM-dd
+      pattern: "%{yyyy-MM-dd HH:mm:ss}t %s %r %{User-Agent}i %{Referer}i %a %b %D"
+logging:
+  level:
+    org:
+      springframework:
+        core:
+          LocalVariableTableParameterNameDiscoverer:
+            error
+#    com.zaxxer.hikari.HikariConfig: DEBUG
+#    com.zaxxer.hikari: TRACE
 
+## aws url 입력 필요
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://one-eco.cqzss9l3faaq.ap-northeast-2.rds.amazonaws.com/1eco
+    url: empty
     username: admin
     password: test1234
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 15
+      connection-test-query: null
+      validation-timeout: 500
+      connection-timeout: 10000
+      max-lifetime: 1800000
+      idle-timeout: 300000
+      keepalive-time: 30000
   jpa:
     properties:
       hibernate:
+        dialect: team.boundary.oneecho.global.configuration.CustomMariaDBDialect
         hbm2ddl:
           auto: none
         jdbc:
           time_zone: UTC
-      show-sql: true
-      open-in-view: true
-      format_sql: true
-      use_sql_comments: true
+        show_sql: true
     generate-ddl: false
-  redis:
-    host: localhost
-    port: 6379
-
-
   config:
     import:
-      - classpath:logback.yml
       - classpath:secretKey.yml
   mvc:
     pathmatch:
@@ -40,5 +60,33 @@ spring:
 
   servlet:
     multipart:
-      max-file-size: 20MB
-      max-request-size: 20MB
+      max-file-size: 50MB
+      max-request-size: 50MB
+  data:
+    redis:
+      host: redis
+#      host: localhost
+      port: 6379
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /index.html
+    display-request-duration: false # Disable display of request duration if not needed.
+    tags-sorter: alpha
+    operations-sorter: alpha
+    doc-expansion: none
+    syntax-highlight:
+      theme: nord
+    groups-order: asc
+  cache:
+    disabled: true # Disable caching in SpringDoc Swagger to reduce overhead.
+  pre-loading-enabled: true
+  override-with-generic-response: false
+  model-and-view-allowed: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
